@@ -1,0 +1,4 @@
+import { Brand, DiscordIcon } from './Brand';
+import { DISCORD_URL } from '@/lib/constants';
+import { ArrowUpRight } from 'lucide-react';
+export function Footer() { return <footer className="container footer"><div className="footer-top"><a href="#home" aria-label="NoicHub home"><Brand /></a><span className="footer-tagline">One hub. Your favorite games.</span><nav aria-label="Footer navigation"><a href="#games">Supported Games</a><a href="#script">Script</a><a href={DISCORD_URL} target="_blank" rel="noopener noreferrer"><DiscordIcon size={15}/>Discord<ArrowUpRight size={12}/></a></nav></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NoicHub. All rights reserved.</span><p>NoicHub is an independent project and is not affiliated with or endorsed by Roblox Corporation.</p><a href="#home" aria-label="Back to top">BACK TO TOP ↑</a></div></footer>; }

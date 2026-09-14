@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+import { LOADER } from '../lib/constants';
+test('Pages export works with a repository subpath and no server runtime', async ({ page, context, request }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('response', response => { if (response.url().startsWith('http://127.0.0.1:3100') && response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  // Stabilize the deliberately floating hero for coordinate-based automation.
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/Noichub/');
+  await expect(page).toHaveTitle('NoicHub — Roblox Lua Hub');
+  await expect(page.locator('.game-card')).toHaveCount(11);
+  await expect(page.locator('.hero-preview-button img')).toHaveAttribute('src', '/Noichub/images/showcase/noichub-1.webp');
+  await expect.poll(() => page.locator('.hero-preview-button img').evaluate(img => (img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  expect(await page.locator('meta[property="og:image"]').getAttribute('content')).toBe('https://noicyreal.github.io/Noichub/images/showcase/noichub-1.webp');
+  await page.getByRole('button', { name: 'Copy script', exact: true }).click();
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(LOADER);
+  await page.getByRole('button', { name: 'Enlarge NoicHub preview' }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).not.toBeVisible();
+  const api = await request.get('/Noichub/api/games/');
+  expect(api.ok()).toBe(true);
+  expect((await api.json()).games).toHaveLength(11);
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  await page.locator('#mobile-menu').getByRole('link', { name: 'Games', exact: true }).click();
+  await expect(page).toHaveURL(/\/Noichub\/#games$/);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(errors).toEqual([]);
+});

@@ -1,0 +1,5 @@
+import { ArrowUpRight } from 'lucide-react';
+import { DiscordIcon } from './Brand';
+import { DISCORD_URL } from '@/lib/constants';
+import { Reveal } from './Motion';
+export function DiscordCTA() { return <section id="discord" className="discord-section"><div className="container"><Reveal className="discord-card"><div className="discord-art" aria-hidden="true"><div className="discord-ring ring-1"/><div className="discord-ring ring-2"/><div className="discord-ring ring-3"/><div className="discord-glyph"><DiscordIcon size={73}/></div><span className="discord-star star-one">+</span><span className="discord-star star-two">✳</span></div><div className="discord-copy"><div className="section-kicker"><span/>THE HUB BEYOND THE GAME</div><h2>Join the NoicHub<br />Community<span className="purple">.</span></h2><p>Be first to hear what’s next. Get updates, discover new<br className="desktop-break" /> game support, and find your people.</p><a className="button button-primary" href={DISCORD_URL} target="_blank" rel="noopener noreferrer"><DiscordIcon />Join Discord<ArrowUpRight size={17}/></a></div></Reveal></div></section>; }
