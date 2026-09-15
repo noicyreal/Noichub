@@ -7,16 +7,16 @@ test('real metadata, all destinations, and local screenshots', async ({ page, re
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   await page.goto('/');
   await expect(page).toHaveTitle('NoicHub — Roblox Lua Hub');
-  await expect(page.locator('.game-card')).toHaveCount(11);
+  await expect(page.locator('.game-card')).toHaveCount(PLACE_IDS.length);
   for (const id of PLACE_IDS) await expect(page.locator(`.game-card[href="https://www.roblox.com/games/${id}"]`)).toHaveAttribute('target', '_blank');
   for (const link of await page.locator('a[href*="discord.com"]').all()) { await expect(link).toHaveAttribute('href', DISCORD_URL); await expect(link).toHaveAttribute('rel', 'noopener noreferrer'); }
   const data = await (await request.get('/api/games')).json();
-  expect(data.games).toHaveLength(11);
+  expect(data.games).toHaveLength(PLACE_IDS.length);
   for (const game of data.games) { expect(game.name).toBeTruthy(); expect(new URL(game.image).hostname).toMatch(/\.rbxcdn\.com$/); }
   for (let i = 1; i <= 3; i++) { const response = await request.get(`/images/showcase/noichub-${i}.webp`); expect(response.ok()).toBeTruthy(); expect(response.headers()['content-type']).toContain('image/webp'); }
   expect(await page.locator('img[src*="discord"]').count()).toBe(0);
   for (const card of await page.locator('.game-card').all()) await card.scrollIntoViewIfNeeded();
-  await expect(page.locator('.game-card img')).toHaveCount(11);
+  await expect(page.locator('.game-card img')).toHaveCount(PLACE_IDS.length);
   await expect.poll(() => page.locator('.game-card img').evaluateAll(imgs => imgs.every(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))).toBe(true);
   expect(errors).toEqual([]);
 });
@@ -62,7 +62,7 @@ test('search, empty state, and clear', async ({ page }) => {
   await search.fill('not-a-real-experience');
   await expect(page.getByRole('heading', { name: 'No games found' })).toBeVisible();
   await page.getByRole('button', { name: 'Show all games' }).click();
-  await expect(page.locator('.game-card')).toHaveCount(11);
+  await expect(page.locator('.game-card')).toHaveCount(PLACE_IDS.length);
 });
 
 for (const width of [320, 375, 768, 1024, 1440, 1920]) {
@@ -90,5 +90,5 @@ test('broken thumbnail gracefully falls back', async ({ page }) => {
   await page.goto('/');
   await page.locator('#games').scrollIntoViewIfNeeded();
   await expect(page.locator('.game-placeholder').first()).toBeVisible();
-  await expect(page.locator('.game-card')).toHaveCount(11);
+  await expect(page.locator('.game-card')).toHaveCount(PLACE_IDS.length);
 });

@@ -1,6 +1,8 @@
 // Refresh real metadata for static hosting; retain verified values during outages.
 import { readFile, writeFile } from 'node:fs/promises';
-const ids = ['79393329652220','120189115846709','7796842481','76822114837453','110808833601416','5938036553','132640332499066','574407221','139988436996662','129870876180628','17738127017'];
+import { parseGameConfig } from '../lib/game-config.mjs';
+const entries = parseGameConfig(JSON.parse(await readFile('games.json', 'utf8')));
+const ids = entries.map(game => game.placeId);
 const previous = JSON.parse(await readFile('lib/games-snapshot.json', 'utf8'));
 let refreshed = false;
 async function json(url) {
@@ -22,6 +24,7 @@ for (const placeId of ids) {
     try { const result = await json(`https://apis.roblox.com/universes/v1/places/${placeId}/universe`); if (result.universeId) game.universeId = result.universeId; }
     catch { console.warn(`Retaining saved data for place ${placeId}`); }
   }
+  game.status = entries.find(entry => entry.placeId === placeId).status;
   games.push(game);
 }
 const universeIds = [...new Set(games.flatMap(g => g.universeId ? [g.universeId] : []))].join(',');
@@ -31,7 +34,9 @@ if (universeIds) {
     json(`https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeIds}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false`),
   ]);
   for (const game of games) {
-    const name = metadata.status === 'fulfilled' ? metadata.value.data?.find(x => x.id === game.universeId)?.name : null;
+    const info = metadata.status === 'fulfilled' ? metadata.value.data?.find(x => x.id === game.universeId) : null;
+    const name = info?.name;
+    if (Number.isSafeInteger(info?.playing) && info.playing >= 0) { game.playing = info.playing; game.playersUpdatedAt = new Date().toISOString(); refreshed = true; }
     if (typeof name === 'string' && name) { game.name = name; refreshed = true; }
     const thumb = thumbnails.status === 'fulfilled' ? thumbnails.value.data?.find(x => x.targetId === game.universeId && x.state === 'Completed') : null;
     if (thumb?.imageUrl) {

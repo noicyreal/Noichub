@@ -23,6 +23,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
+      - run: npm run test:config
       - name: Refresh verified Roblox data
         run: node scripts/refresh-games.mjs
       - run: npm run lint

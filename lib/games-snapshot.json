@@ -1,82 +1,115 @@
 {
-  "fetchedAt": "2026-09-14T19:50:47.740Z",
+  "fetchedAt": "2026-09-15T13:01:51.588Z",
   "games": [
     {
+      "placeId": "574407221",
+      "name": "Super Hero Tycoon",
+      "image": "https://tr.rbxcdn.com/180DAY-6fc3b102688d779c7c12d1ff49d2658d/512/512/Image/Png/noFilter",
+      "url": "https://www.roblox.com/games/574407221",
+      "universeId": 228573408,
+      "playing": 648,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
+    },
+    {
       "placeId": "79393329652220",
-      "universeId": 6993600665,
       "name": "[🧤] Defusal",
       "image": "https://tr.rbxcdn.com/180DAY-e6f84513650e3850c23fff8a468d18fb/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/79393329652220"
+      "url": "https://www.roblox.com/games/79393329652220",
+      "universeId": 6993600665,
+      "playing": 5723,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "120189115846709",
-      "universeId": 10090256806,
       "name": "TTK Testing [HARDPOINT]",
       "image": "https://tr.rbxcdn.com/180DAY-de9f3769613792502b783af16dbf3056/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/120189115846709"
+      "url": "https://www.roblox.com/games/120189115846709",
+      "universeId": 10090256806,
+      "playing": 1701,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "7796842481",
-      "universeId": 3021395192,
       "name": "RIOTFALL [FPS]",
       "image": "https://tr.rbxcdn.com/180DAY-6bc1a731eebb84fc4e73bfb963380087/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/7796842481"
+      "url": "https://www.roblox.com/games/7796842481",
+      "universeId": 3021395192,
+      "playing": 42,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "76822114837453",
-      "universeId": 6583326485,
       "name": "Ground War",
       "image": "https://tr.rbxcdn.com/180DAY-0b183ca78be8902a0d2a08531086504c/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/76822114837453"
+      "url": "https://www.roblox.com/games/76822114837453",
+      "universeId": 6583326485,
+      "playing": 4144,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "110808833601416",
-      "universeId": 10276281921,
       "name": "[🖼️ MUSEUM] Chameleon",
       "image": "https://tr.rbxcdn.com/180DAY-4b12be3f42b1b224e9aeb5bb074043c0/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/110808833601416"
+      "url": "https://www.roblox.com/games/110808833601416",
+      "universeId": 10276281921,
+      "playing": 583,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "5938036553",
-      "universeId": 2132866904,
       "name": "FRONTLINES",
       "image": "https://tr.rbxcdn.com/180DAY-3fab2edac3adb6050f42d3292937f9d8/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/5938036553"
+      "url": "https://www.roblox.com/games/5938036553",
+      "universeId": 2132866904,
+      "playing": 188,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "132640332499066",
-      "universeId": 10275970697,
       "name": "💥Global Anarchy [Early Access]",
       "image": "https://tr.rbxcdn.com/180DAY-cbd96635387bc80f1637d31ccba0a7e5/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/132640332499066"
-    },
-    {
-      "placeId": "574407221",
-      "universeId": 228573408,
-      "name": "Super Hero Tycoon",
-      "image": "https://tr.rbxcdn.com/180DAY-6fc3b102688d779c7c12d1ff49d2658d/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/574407221"
+      "url": "https://www.roblox.com/games/132640332499066",
+      "universeId": 10275970697,
+      "playing": 247,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "139988436996662",
-      "universeId": 9119782663,
       "name": "Stop the Timer",
       "image": "https://tr.rbxcdn.com/180DAY-df8d06dc70c2d6928d43df86a6e1d26e/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/139988436996662"
+      "url": "https://www.roblox.com/games/139988436996662",
+      "universeId": 9119782663,
+      "playing": 1012,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "129870876180628",
-      "universeId": 10040497010,
       "name": "[🌍]Guess My Country!",
       "image": "https://tr.rbxcdn.com/180DAY-2983d534779cf7adb4acefa38ef1cd73/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/129870876180628"
+      "url": "https://www.roblox.com/games/129870876180628",
+      "universeId": 10040497010,
+      "playing": 881,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     },
     {
       "placeId": "17738127017",
-      "universeId": 6075694711,
       "name": "[SUMMER UPD] Brace",
       "image": "https://tr.rbxcdn.com/180DAY-1a42097ba423c6e318d0162dd1dddba1/512/512/Image/Png/noFilter",
-      "url": "https://www.roblox.com/games/17738127017"
+      "url": "https://www.roblox.com/games/17738127017",
+      "universeId": 6075694711,
+      "playing": 98,
+      "playersUpdatedAt": "2026-09-15T13:01:51.588Z",
+      "status": "undetected"
     }
   ]
 }
